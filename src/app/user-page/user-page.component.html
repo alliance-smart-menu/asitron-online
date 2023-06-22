@@ -1,0 +1,63 @@
+<section>
+    <h1>{{html.profile[authService.language]}}</h1>
+    <form [formGroup]="user">
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element" >{{html.login[authService.language]}}</mat-label>
+            <input class="mat-element" matInput required [disabled]="pennding" formControlName="login">
+        </mat-form-field>
+        <span class="example-full-width phone-container">
+
+            <mat-form-field class="mat-element phone-code">
+                <mat-label class="mat-element">{{html.code[authService.language]}}</mat-label>
+                <input class="mat-element" matInput [disabled]="pennding" formControlName="code" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option class="mat-element" *ngFor="let item of filteredCodes" [value]="item.code">
+                    +{{ item.code }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+            <mat-form-field class="mat-element phone-number">
+                <mat-label class="mat-element">{{html.phone[authService.language]}}</mat-label>
+                <input class="mat-element" matInput max="8" type="tel" required [disabled]="pennding" formControlName="phone">
+            </mat-form-field>
+        </span>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.name[authService.language]}}</mat-label>
+            <input class="mat-element" matInput [disabled]="pennding" formControlName="name" >
+        </mat-form-field>
+        <button id="save-info" 
+        [disabled]="pennding || user.invalid"
+        (click)="saveInfo()"
+        mat-raised-button 
+        color="primary" 
+        class="mat-element">{{html.end[authService.language]}} </button>
+    </form>
+    <br><br>
+    <h1>{{html.change_password[authService.language]}}</h1>
+    <form [formGroup]="password">
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.password[authService.language]}}</mat-label>
+            <input class="mat-element" matInput  type="password" [disabled]="pennding" formControlName="password" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.confirm_password[authService.language]}}</mat-label>
+            <input class="mat-element" matInput type="password" required [disabled]="pennding" formControlName="confirm_password">
+        </mat-form-field>
+        <button id="save-password" 
+        [disabled]="pennding || password.invalid"
+        (click)="savePassword()"
+        mat-raised-button 
+        color="warn" 
+        class="mat-element">{{html.change[authService.language]}} </button>
+    </form>
+    <br><br>
+    <button 
+    id="exit"
+    [disabled]="pennding"
+    mat-raised-button 
+    (click)="authService.logout()"
+    >
+        {{html.logout[authService.language]}}
+    </button>
+</section>

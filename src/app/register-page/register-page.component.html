@@ -1,0 +1,45 @@
+<section>
+    <form [formGroup]="user">
+        <img class="logo" src="../../assets/img/logo.svg" alt="Asitron">
+        <h1>{{html.registration[authService.language]}}</h1>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element" >{{html.login[authService.language]}}</mat-label>
+            <input class="mat-element" matInput required [disabled]="pennding" formControlName="login">
+        </mat-form-field>
+        <span class="example-full-width phone-container">
+
+            <mat-form-field class="mat-element phone-code">
+                <mat-label class="mat-element">{{html.code[authService.language]}}</mat-label>
+                <input class="mat-element" matInput [disabled]="pennding" formControlName="code" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option class="mat-element" *ngFor="let item of filteredCodes" [value]="item.code">
+                    +{{ item.code }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+            <mat-form-field class="mat-element phone-number">
+                <mat-label class="mat-element">{{html.phone[authService.language]}}</mat-label>
+                <input class="mat-element" matInput max="8" type="tel" required [disabled]="pennding" formControlName="phone">
+            </mat-form-field>
+        </span>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.password[authService.language]}}</mat-label>
+            <input class="mat-element" matInput  type="password" [disabled]="pennding" formControlName="password" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.confirm_password[authService.language]}}</mat-label>
+            <input class="mat-element" matInput type="password" required [disabled]="pennding" formControlName="confirm_password">
+        </mat-form-field>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.name[authService.language]}}</mat-label>
+            <input class="mat-element" matInput [disabled]="pennding" formControlName="name" >
+        </mat-form-field>
+        <button id="enter" 
+        [disabled]="pennding || user.invalid"
+        (click)="post()"
+        mat-raised-button 
+        color="primary" 
+        class="mat-element">{{html.end[authService.language]}} </button>
+    </form>
+</section>

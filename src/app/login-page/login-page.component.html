@@ -1,0 +1,21 @@
+<section>
+    <form [formGroup]="user" (ngSubmit)="login()">
+        <img class="logo" src="../../assets/img/logo.svg" alt="Asitron">
+        <h3>{{html.my_account[authService.language]}}</h3>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.login[authService.language]}}</mat-label>
+            <input class="mat-element" matInput [disabled]="pennding" formControlName="login">
+        </mat-form-field>
+        <mat-form-field class="example-full-width mat-element">
+            <mat-label class="mat-element">{{html.password[authService.language]}}</mat-label>
+            <input class="mat-element" matInput type="password" formControlName="password" >
+        </mat-form-field>
+        <button id="enter" 
+        class="mat-element" 
+        mat-raised-button color="primary" 
+        [disabled]="pennding || user.invalid" 
+        type="submit"
+        >{{html.enter[authService.language]}}</button>
+    </form>
+    <b [routerLink]="['/register']" >{{html.registration[authService.language]}}</b>
+</section>

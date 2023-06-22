@@ -1,0 +1,128 @@
+<section>
+    <h1>{{html.start[authService.language]}}:</h1>
+    <form [formGroup]="unlock">
+
+        <mat-form-field class="example-full-width mat-element"  >
+            <mat-label class="mat-element" >{{html.model[authService.language]}}</mat-label>
+            <input class="mat-element" matInput required [disabled]="pennding" formControlName="model">
+        </mat-form-field>
+
+        <mat-form-field class=" example-full-width mat-element ">
+            <mat-label class=" mat-element ">{{html.comment[authService.language]}}</mat-label>
+            <textarea class=" mat-element " matInput [disabled]="pennding" formControlName="comment" ></textarea>
+        </mat-form-field>
+
+        <span class="example-full-width price-method-container">
+
+            <span class="flex-column-center method">
+                <b class="active"  >{{html.payment[authService.language]}}</b>
+                &nbsp;
+                <mat-form-field class="mat-element method">
+                    <mat-label class="mat-element">{{ (unlock.get('payment')?.value).method }}</mat-label>
+                    <mat-select class="mat-element" [disabled]="pennding"  formControlName="payment" >
+                      <mat-option class="mat-element" *ngFor="let item of methods" [value]="item">
+                        {{item.method}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </span>
+
+            <span class="flex-column-center">
+                <b class="active" >{{html.total[authService.language]}}</b>
+                <h3> {{ unlock.get('price')?.value }}  {{ (unlock.get('payment')?.value).valuta }} </h3>
+            </span>
+
+            <button
+            id="create"
+            mat-raised-button 
+            color="primary" 
+            class="mat-element"
+            [disabled]="pennding || unlock.invalid"
+            (click)="post()"
+            >
+                {{html.create[authService.language]}}
+            </button>
+
+        </span>
+
+    </form>
+    <ng-container *ngIf="!loading">
+
+        <div *ngIf="unlocks" class="unlocks-container">
+            <h3 *ngIf="unlocks && unlocks.length == 0">{{html.unlocks_title_1[authService.language]}}</h3>
+
+            <span *ngIf="unlocks && unlocks.length > 0" class="example-full-width total-unlock-container">
+
+                <span class="flex-column-center">
+                    <b class="active" >{{html.unlocks_total[authService.language]}}</b>
+                    <h3>{{total}}</h3>
+                </span>
+
+                <span class="flex-column-center">
+                    <b class="active" >{{html.open[authService.language]}}</b>
+                    <h3>{{open}}</h3>
+                </span>
+
+                <span class="flex-column-center">
+                    <b class="active" >{{html.closed[authService.language]}}</b>
+                    <h3>{{closed}}</h3>
+                </span>
+
+                <span *ngIf="authService.user.balanced" class="flex-column-center">
+                    <b class="active" >{{html.balance[authService.language]}} mdl</b>
+                    <h3>{{authService.user.balance.mdl}}</h3>
+                </span>
+
+                <span *ngIf="authService.user.balanced" class="flex-column-center">
+                    <b class="active" >{{html.balance[authService.language]}} usdt</b>
+                    <h3>{{authService.user.balance.usdt}}</h3>
+                </span>
+
+            </span>
+
+            <div class="unlock" *ngFor="let item of unlocks">
+
+                <span class="flex-column-center">
+                    <b class="active" >{{html.unlocks_number[authService.language]}}</b>
+                    <h3>{{item.number}}</h3>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.unlocks_date[authService.language]}}</b>
+                    <h3>{{item.start | date: "HH:mm dd/MM/YYYY" }}</h3>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.model[authService.language]}}</b>
+                    <h3>{{item.model}}</h3>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.payment[authService.language]}}</b>
+                    <h3>{{item.payment.method}}</h3>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.total[authService.language]}}</b>
+                    <h3>{{item.price}} {{item.payment.valuta}}</h3>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.unlocks_paid[authService.language]}}</b>
+                    &nbsp;
+                    <mat-icon *ngIf="item.paid" fontIcon="done"></mat-icon>
+                    <mat-icon *ngIf="!item.paid" fontIcon="close"></mat-icon>
+                </span>
+
+                <span class="flex-column-center cell">
+                    <b class="active" >{{html.unlocks_done[authService.language]}}</b>
+                    &nbsp;
+                    <mat-icon *ngIf="item.done" fontIcon="done_all"></mat-icon>
+                    <mat-icon *ngIf="!item.done" fontIcon="close"></mat-icon>
+                </span>
+
+            </div>
+        </div>
+
+    </ng-container>
+</section>

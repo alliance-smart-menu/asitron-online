@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary: #C62828;
+    /* --primary: #B71C1C; */
+    --secondary: white;
+    --background_color: #1f1f1f;
+    --footer: 50px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
+html, body { 
+    height: 100%; 
+    background-color: var(--background_color);
+}
+
+body { 
+    margin: 0; 
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.active {
+    color: var(--primary);
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.material-icons  {
+    font-size: 26px;
+}
+
+@media (max-width: 768px) { 
+
+    .mat-element {
+        font-size: 10px;
+    }
+
+    .material-icons  {
+        font-size: 24px;
+    }
+
+    b {
+        font-size: 12px;
+    }
+    
+}

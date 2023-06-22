@@ -1,0 +1,15 @@
+#route-button {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    min-width: 180px;
+    font-weight: 700;
+}
+
+section {
+    width: 100%;
+    min-height: calc(100vh - var(--footer));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

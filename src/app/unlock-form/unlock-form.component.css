@@ -1,0 +1,114 @@
+section {
+    width: 100%;
+    min-height: calc(100vh - var(--footer));
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+h1 {
+    width: 80%;
+    text-align: left;
+}
+
+
+
+form {
+    padding: 10px 0px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.unlocks-container  {
+    width: 80%;
+    border-top: 2px solid white;
+    margin-top: 10px;
+    padding: 5px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.price-method-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cell {
+    width: 14%;
+}
+
+.unlock {
+    border-top: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary);
+    padding: 5px 0px;
+    width: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+h3, b {
+    text-align: center;
+}
+
+.total-unlock-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 768px) { 
+
+    section {
+        min-height: none;
+    }
+
+    h1 {
+        font-size: 16px;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    #create  {
+        margin-top: 15px
+    }
+
+    .method {
+        width: 100%;
+    }
+
+    h1, form, #create, .unlocks-container  {
+        width: 95%;
+    }
+
+    .price-method-container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .unlock {
+        justify-content: space-evenly;
+    }
+
+    .cell {
+        margin: 5px;
+        width: auto;
+    }
+
+}
