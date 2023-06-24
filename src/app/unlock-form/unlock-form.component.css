@@ -54,7 +54,7 @@ form {
     width: 100%;
     min-height: 40px;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
 }
@@ -68,6 +68,11 @@ h3, b {
     align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+#create {
+    align-self: flex-end;
+    min-width: 150px;
 }
 
 

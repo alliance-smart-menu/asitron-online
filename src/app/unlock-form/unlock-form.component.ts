@@ -17,7 +17,7 @@ export class UnlockFormComponent implements OnInit {
     {method: "MICB", valuta: "mdl"},
     {method: "MAIB", valuta: "mdl"},
     {method: "Paynet", valuta: "mdl"},
-    {method: "USDT-TRC20", valuta: "usdt"},
+    {method: "USDT-TRC20", valuta: "usdt"}
   ]
 
   html: any = {
@@ -95,6 +95,11 @@ export class UnlockFormComponent implements OnInit {
       ru: "Баланс",
       en: "Balance",
       md: "Balance"
+    },
+    paid: {
+      ru: "Оплатить",
+      en: "Pay",
+      md: "A plati"
     }
   }
 
@@ -118,14 +123,10 @@ export class UnlockFormComponent implements OnInit {
     this.unlock = new FormGroup({
       model: new FormControl(undefined, [Validators.required, Validators.minLength(5)]),
       comment: new FormControl(undefined),
-      payment: new FormControl({method: "Victoriabank", valuta: "mdl"}, Validators.required),
-      price: new FormControl(150, Validators.required)
     });
   }
 
   ngOnInit(): void {
-    this.onPaymentChange();
-    this.subscribeToMethodChange();
     this.get();
   } 
 
@@ -152,7 +153,14 @@ export class UnlockFormComponent implements OnInit {
 
     this.unlockService.get().subscribe(
       data => {
-        this.unlocks = data
+        this.unlocks = data.map( (item: any) => {
+
+          if (item.price && !item.payment && !item.paid) {
+            item.payment = {method: "Victoriabank", valuta: "mdl"}
+          }
+
+          return item
+        } )
 
         data.forEach((element: any) => {
           if (element.done) {
