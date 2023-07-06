@@ -19,6 +19,7 @@ section {
     border: 1px solid white;
     border-radius: 5%;
     /* max-width: 200px; */
+    min-height: 205px;
     padding: 10px 5px;
     margin: 5px;
     display: flex;

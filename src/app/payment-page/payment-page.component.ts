@@ -40,21 +40,21 @@ export class PaymentPageComponent implements OnInit {
       valuta: "mdl",
       image: "../../assets/payments/Victoria.svg",
       card: "4779 1800 0211 7886",
-      name: "Georgi Mita"
+      name: "GHEORGHE MITA"
     },
     {
       method: "MICB",
       image: "../../assets/payments/MICB.svg",
       card: "4028 1102 8151 0294",
       valuta: "mdl",
-      name: "Georgi Mita"
+      name: "GHEORGHE MITA"
     },
     {
       method: "MAIB", 
       valuta: "mdl",
       image: "../../assets/payments/MAIB.svg",
       card: "4356 9600 6337 5635",
-      name: "Georgi Mita"
+      name: "GHEORGHE MITA"
     },
     {
       method: "Paynet", 
