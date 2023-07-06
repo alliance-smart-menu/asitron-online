@@ -11,5 +11,24 @@ section {
     min-height: calc(100vh - var(--footer));
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+img {
+    height: calc(95vh - var(--footer))
+}
+
+
+@media (max-width: 768px) {
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    section {
+        min-height: calc(90vh - var(--footer));
+        justify-content: center;
+    }
+
 }

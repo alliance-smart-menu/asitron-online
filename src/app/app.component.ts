@@ -30,6 +30,11 @@ export class AppComponent implements OnInit {
       ru: "Оплата",
       en: "Payment",
       md: "Plată"
+    },
+    contacts: {
+      ru: "Контакты",
+      en: "Contacts",
+      md: "Contacte"
     }
   }
 

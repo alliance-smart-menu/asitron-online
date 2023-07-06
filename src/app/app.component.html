@@ -42,8 +42,12 @@
     [routerLink]="['/payment']" 
     routerLinkActive="active" 
     class="flex-column-center router">
-        <mat-icon fontIcon="payments"></mat-icon>
-        <b>{{html.payment[authSerivce.language]}}</b>
+        <span class="payment-contacts">
+            <mat-icon fontIcon="payments"></mat-icon>
+            /
+            <mat-icon fontIcon="call"></mat-icon>
+        </span>
+        <b>{{html.payment[authSerivce.language]}} / {{html.contacts[authSerivce.language]}}</b>
     </span>
 
     <span 

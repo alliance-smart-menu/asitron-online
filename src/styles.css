@@ -14,6 +14,12 @@ html, body {
     background-color: var(--background_color);
 }
 
+a {
+    cursor: pointer;
+    color: var(--secondary);
+    text-decoration-line: none;
+}
+
 body { 
     margin: 0; 
     font-family: 'Roboto', sans-serif;

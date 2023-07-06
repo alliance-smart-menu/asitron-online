@@ -20,4 +20,8 @@ export class UnlockService {
         return this.http.post<any>(`${environment.apiURL}/api/web/unlock`, data)
     }
 
+    patch(data: any, _id: string): Observable<any> {
+        return this.http.patch<any>(`${environment.apiURL}/api/web/unlock/${_id}`, data)
+    }
+
 }

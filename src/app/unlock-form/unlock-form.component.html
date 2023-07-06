@@ -1,4 +1,18 @@
 <section>
+    <div class="download-container">
+        <img src="../../assets/img/logo.svg" alt="Asitron">
+        <h2>{{html.programm[authService.language]}} &nbsp;&nbsp;&nbsp;  -----> </h2>
+        <a href="https://drive.google.com/file/d/1LTY-5U3XgAoWEihR76lhT7CvPkRLMRcd/view?usp=sharing" target="_blank" >
+            <button
+            id="download"
+            mat-raised-button 
+            color="primary" 
+            class="mat-element"
+            >
+                {{html.download[authService.language]}}
+            </button>
+        </a>
+    </div>
     <h1>{{html.start[authService.language]}}:</h1>
     <form [formGroup]="unlock">
 
@@ -22,32 +36,6 @@
         >
             {{html.create[authService.language]}}
         </button>
-
-        <!-- 
-        <span class="example-full-width price-method-container">
-  
-            <span class="flex-column-center method">
-                <b class="active"  >{{html.payment[authService.language]}}</b>
-                &nbsp;
-                <mat-form-field class="mat-element method">
-                    <mat-label class="mat-element">{{ (unlock.get('payment')?.value).method }}</mat-label>
-                    <mat-select class="mat-element" [disabled]="pennding"  formControlName="payment" >
-                      <mat-option class="mat-element" *ngFor="let item of methods" [value]="item">
-                        {{item.method}}
-                      </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </span> 
-            -->
-
-            <!-- 
-            <span class="flex-column-center">
-                <b class="active" >{{html.total[authService.language]}}</b>
-                <h3> {{ unlock.get('price')?.value }}  {{ (unlock.get('payment')?.value).valuta }} </h3>
-            </span> 
-         
-        </span> 
-        -->
 
     </form>
     <ng-container *ngIf="!loading">
@@ -101,6 +89,16 @@
                     <h3>{{item.model}}</h3>
                 </span>
 
+                <button
+                *ngIf="!item.price"
+                mat-raised-button 
+                color="primary" 
+                class="mat-element"
+                [routerLink]="['/payment']" 
+                >
+                    {{html.master_call[authService.language]}}
+                </button>
+
                 <ng-container *ngIf="item.price">
 
                      
@@ -127,7 +125,7 @@
                         <h3>{{item.price[item.payment.valuta]}} {{item.payment.valuta}}</h3>
                         <button
                         *ngIf="!item.paid"
-                        [routerLink]="['/payment']" 
+                        (click)="patch(item)"
                         mat-raised-button 
                         color="primary" 
                         class="mat-element"

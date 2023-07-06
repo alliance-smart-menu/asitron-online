@@ -8,6 +8,23 @@ section {
     justify-content: flex-start;
 }
 
+.download-container {
+    padding: 10px 0px;
+    border-bottom: 2px solid white;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+img {
+    width: 20%;
+}
+
+#download {
+    min-width: 200px;
+}
+
 h1 {
     width: 80%;
     text-align: left;
@@ -77,6 +94,10 @@ h3, b {
 
 
 @media (max-width: 768px) { 
+
+    .download-container {
+        display: none;
+    }
 
     section {
         min-height: none;

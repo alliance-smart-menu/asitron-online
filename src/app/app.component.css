@@ -49,6 +49,15 @@ b {
     margin-top: 3px;
 }
 
+.payment-contacts {
+    min-width: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
 @media (max-width: 768px) {
 
     /*   

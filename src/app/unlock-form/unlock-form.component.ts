@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { SnackbarService } from '../services/snackbar.service';
 import { UnlockService } from '../services/unlock.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-unlock-form',
@@ -66,6 +67,11 @@ export class UnlockFormComponent implements OnInit {
       en: "Date of application",
       md: "Data aplicării"
     },
+    master_call: {
+      ru: "Связаться",
+      en: "Contact",
+      md: "Apelați"
+    },
     unlocks_paid: {
       ru: "Платеж принят",
       en: "Payment accepted",
@@ -100,6 +106,16 @@ export class UnlockFormComponent implements OnInit {
       ru: "Оплатить",
       en: "Pay",
       md: "A plati"
+    },
+    programm: {
+      ru: "Программа для доступа мастера",
+      en: "Worker access program",
+      md: "Program de acces muncitor"
+    },
+    download: {
+      ru: "Скачать",
+      en: "Download",
+      md: "Download"
     }
   }
 
@@ -117,7 +133,8 @@ export class UnlockFormComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private snackbar: SnackbarService,
-    private unlockService: UnlockService
+    private unlockService: UnlockService,
+    private router: Router
   ) 
   {
     this.unlock = new FormGroup({
@@ -144,6 +161,27 @@ export class UnlockFormComponent implements OnInit {
         this.pennding = false
         console.warn(error);
         this.snackbar.open(error.error.message ? error.error.message : "Ошибка", 5);
+      }
+    )
+  }
+
+  patch(item: any) {
+    this.pennding = true
+
+    this.unlockService.patch(item, item._id).subscribe(
+      data => {
+        this.router.navigate(
+          ['/payment'], 
+          { queryParams: 
+            { 
+              method: item.payment.method,
+              price: item.price[item.payment.valuta]
+            } 
+          }
+        );
+      },
+      error => {
+        console.warn(error)
       }
     )
   }

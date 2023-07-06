@@ -1,1 +1,56 @@
-<p>payment-page works!</p>
+<section>
+    <h1>{{html.methods[authService.language]}}</h1>
+
+    <div class="payments-method">
+        <span class="payment" *ngFor="let item of payments">
+            <img *ngIf="item.image" class="payment-image" [src]="item.image" [alt]="item.method">
+            <h3 class="card active" >{{item.card}}</h3>
+            <b *ngIf="item.name"  >{{item.name}}</b>
+            <h3 class="price" *ngIf="price">
+                {{price}} &nbsp; {{item.valuta}}
+            </h3>
+        </span>
+    </div>
+
+    <br><br>
+
+    <h1>{{html.call[authService.language]}}</h1>
+    
+    <br>
+
+    <div class="payments-method">
+
+        <a class="flex-column-center social" href="tel:+37379006119">
+            <img class="social-logo" src="../../assets/call/call.svg" alt="Call">
+            <b class="active">{{html.phone[authService.language]}}</b>
+            <h3>+373 79 006 119</h3>
+        </a>
+
+        <a class="flex-column-center social" href="tg://resolve?domain=+37379006119">
+            <img class="social-logo" src="../../assets/call/telegram.svg" alt="Telegramm">
+            <b class="active">Telegram</b>
+            <h3>+373 79 006 119</h3>
+        </a>
+
+        <a class="flex-column-center social" href="viber://add?number=+37379006119">
+            <img class="social-logo" src="../../assets/call/viber.svg" alt="Viber">
+            <b class="active">Viber</b>
+            <h3>+373 79 006 119</h3>
+        </a>
+
+        <a class="flex-column-center social" href="https://wa.me/37379006119">
+            <img class="social-logo" src="../../assets/call/whats app.svg" alt="whats_app">
+            <b class="active">Whats App</b>
+            <h3>+373 79 006 119</h3>
+        </a>
+
+    </div>
+
+    <br>
+    <span class="name-container">
+        <mat-icon class="mat-icon" fontIcon="person"></mat-icon>
+        &nbsp;&nbsp;
+        <h1>{{html.name[authService.language]}}</h1>
+    </span>
+    
+</section>
