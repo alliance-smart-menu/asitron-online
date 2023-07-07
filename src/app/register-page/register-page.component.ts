@@ -52,7 +52,7 @@ export class RegisterPageComponent {
     end: {
       ru: "Зарегистрироваться",
       en: "Register",
-      md: "Inregistreaza-te"
+      md: "Inregistreazate"
     },
   }
 

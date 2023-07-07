@@ -13,7 +13,7 @@ export class UnlockPageComponent implements OnInit {
     start: {
       ru: "Оформить заявку",
       en: "Make a request",
-      md: "A face o cerere"
+      md: "Creați o comandă"
     }
   }
 

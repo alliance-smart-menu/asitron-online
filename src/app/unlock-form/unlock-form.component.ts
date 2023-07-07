@@ -25,7 +25,7 @@ export class UnlockFormComponent implements OnInit {
     start: {
       ru: "Оформить заявку",
       en: "Make a request",
-      md: "A face o cerere"
+      md: "Creați o comandă"
     },
     model: {
       ru: "Модель",
@@ -40,12 +40,12 @@ export class UnlockFormComponent implements OnInit {
     payment: {
       ru: "Способ оплаты",
       en: "Payment method",
-      md: "Modalitate de plată"
+      md: "Modalitatea de plată"
     },
     total: {
       ru: "К оплате",
       en: "To pay",
-      md: "A plăti"
+      md: "Spre plate"
     },
     create: {
       ru: "Создать",
@@ -55,22 +55,22 @@ export class UnlockFormComponent implements OnInit {
     unlocks_title_1: {
       ru: "Создайте первую заявку!",
       en: "Create your first application!",
-      md: "Creați-vă prima aplicație!"
+      md: "Creați prima comandă!"
     },
     unlocks_number: {
       ru: "Номер заявки",
-      en: "Numarul aplicatiei",
-      md: "Application number"
+      en: "Application number",
+      md: "Numărul comandei"
     },
     unlocks_date: {
       ru: "Дата подачи",
       en: "Date of application",
-      md: "Data aplicării"
+      md: "Data comenzei"
     },
     master_call: {
       ru: "Связаться",
       en: "Contact",
-      md: "Apelați"
+      md: "Contactați"
     },
     unlocks_paid: {
       ru: "Платеж принят",
@@ -85,37 +85,37 @@ export class UnlockFormComponent implements OnInit {
     unlocks_total: {
       ru: "Всего заявок",
       en: "Total applications",
-      md: "Total de aplicații"
+      md: "Toate comenzele"
     },
     open: {
       ru: "Открытые",
-      en: "Open",
-      md: "Deschis"
+      en: "Opens",
+      md: "Deschise"
     },
     closed: {
       ru: "Закрытые",
-      en: "Closed",
-      md: "Închis"
+      en: "Closeds",
+      md: "Închise"
     },
     balance: {
       ru: "Баланс",
       en: "Balance",
-      md: "Balance"
+      md: "Balanța"
     },
     paid: {
       ru: "Оплатить",
       en: "Pay",
-      md: "A plati"
+      md: "A chetați"
     },
     programm: {
       ru: "Программа для доступа мастера",
       en: "Worker access program",
-      md: "Program de acces muncitor"
+      md: "Programul de acces ameștirilor"
     },
     download: {
       ru: "Скачать",
       en: "Download",
-      md: "Download"
+      md: "Descărcați"
     }
   }
 

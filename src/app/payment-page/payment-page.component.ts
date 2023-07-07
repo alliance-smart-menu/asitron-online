@@ -15,17 +15,17 @@ export class PaymentPageComponent implements OnInit {
     methods: {
       ru: "Методы оплаты",
       en: "Payment Methods",
-      md: "Metode de plata"
+      md: "Metode de plată"
     },
     call: {
       ru: "Контакты",
-      en: "Contacte",
-      md: "Contact"
+      en: "Contact",
+      md: "Contacte"
     },
     name: {
       ru: "Георгий",
-      en: "George",
-      md: "Georgii"
+      en: "Gheorghe",
+      md: "Gheorghe"
     },
     phone: {
       ru: "Номер телефона",
